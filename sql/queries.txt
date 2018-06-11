@@ -1,0 +1,37 @@
+// 1. feladat :
+SELECT manufacturer, count(id)
+FROM transport
+GROUP BY manufacturer;
+
+// 2. feladat:
+SELECT model,manufacturer,image
+FROM transport
+ORDER BY cargo_capacity DESC
+LIMIT 3;
+
+// 3. feladat:
+SELECT model as Típus, cargo_capacity,passengers,max_atmosphering_speed, crew
+FROM transport
+WHERE crew=1
+AND (manufacturer LIKE 'A%' 
+OR manufacturer LIKE 'B%'
+OR manufacturer LIKE 'C%');
+
+//4. feladat:
+SELECT *
+FROM transport
+WHERE manufacturer LIKE '%Corporation'
+AND passengers>0
+AND cost_in_credits BETWEEN 10000 AND 200000;
+
+//5. feladat:
+SELECT model AS Megnevezés, manufacturer AS Gyártó
+FROM transport
+WHERE crew BETWEEN 1 AND 5
+AND passengers IS NOT NULL
+AND passengers<>0
+AND cargo_capacity IS NOT NULL
+AND cargo_capacity<>0
+GROUP BY crew
+LIMIT 3
+
